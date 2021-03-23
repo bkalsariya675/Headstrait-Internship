@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Web Development</title>
+</head>
+<body>
+    <div class="main">
+        <div class="logo">
+            <img src="/images/logo.jpg">
+        </div>
+        <div class="topnav">
+            <a href="#home" class="active"><b>HOME</b></a>
+            <div id="myLinks">
+                <a href="#news"><b>NEWS</b></a>
+                <a href="contactUs.html"><b>CONTACT US</b></a>
+                <a href="aboutUs.html"><b>ABOUT US</b></a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"><b>=</b></i>
+            </a>
+        </div>
+        <div class="title">
+            <h1>WEB DEVELOPMENT</h1>
+        </div>
+        <div>
+            <a type="#button" class="btn" href="signin.html"><B>SIGN IN</B></a>
+        </div>
+    </div>
+    <h2 class="html"><b>--- WHAT IS HTML?</b></h2>
+    <div class="flt-lft">
+        <img src="/images/html.png" style="width:25%; height: 45%;">
+        <p>
+            Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.
+            HTML describes the structure of a web page semantically and originally included cues for the appearance of the document. 
+            HTML elements are the building blocks of HTML pages.
+        </p>
+    </div>
+    <h2 class="css"><b>--- WHAT IS CSS?</b></h2>
+    <div class="flt-rgt">
+        <img src="/images/css.png" style="width: 20%; height: 45%;">
+        <p>
+            CSS is the language for describing the presentation of Web pages, including colors, layout, and fonts.
+            It allows one to adapt the presentation to different types of devices, such as large screens, small screens, or printers.
+            CSS is independent of HTML and can be used with any XML-based markup language.
+        </p>
+    </div>
+    <h2 class="video"><br>--- VIDEO<br>PLAY THE VIDEO</h2>
+    <div>
+        <video id="myVideo" width="320" height="176" controls>
+            <source src="/videos/mov_bbb.mp4" type="video/mp4">
+            <source src="mov_bbb.ogg" type="video/ogg">
+            Your browser does not support HTML5 video.
+        </video>
+        <script>
+            var vid = document.getElementById("myVideo");
+            vid.onplay = function() {
+                alert("The video has started to play");
+            };
+        </script> 
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script> 
+</body>
+</html>
+<!-- In todays task I learned about video and audio tags along with JS event on it(onmousehover, onclick, onkeyup)
+Secondly got to know how the CSS hierarchy works,
+got to know about the triple equal operator(===),
+also about the (+=) operator in JS in which how the class appends,
+different positions in CSS,
+basics of media query and its flow,
+By Using Universal Selector we can assign margin, padding, etc to all.
+
+10-03-2021:
+row and column class in css
+difference between width and max-width(suppose ek div ko 500 width and ek div ko 500 max width diya hai, 
+then jab webpage 500 width se kum kiya so max width wala will adjust it according to the size of brwoser page whereas 
+width wala will go out of current webpage size and creates a horizontal scrollbar at the bottom )
+
+Flexbox lines up things in one direction whereas Grid has the ability to line things up in two directions(always)
+(suppose there are finite number of images in a row and some text is written on the images we can do this thing only
+with the help of grid because it allow us to overlap things which flex does not) 
+
+flex-wrap: It defines whether the flex items are forced in a single line or can be flowed into multiple lines.
+
+The flex-wrap property accepts 3 different values:
+
+nowrap (default): single-line which may cause the container to overflow
+wrap: multi-lines, direction is defined by flex-direction
+wrap-reverse: multi-lines, opposite to direction defined by flex-direction
+ -->

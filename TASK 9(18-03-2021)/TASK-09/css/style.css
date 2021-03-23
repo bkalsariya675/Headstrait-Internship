@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-color: black;
+}
+header > h1 {
+  text-align: center;
+  color: aliceblue;
+}
+.selections {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.selection {
+  /* Get rid of outline background and border  */
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 10rem;
+  /* slowly grows and slowly shrink */
+  transition: 100ms;
+}
+.selection:hover {
+  /* on hover increase the size */
+  transform: scale(1.2);
+}
+.result-heading {
+  display: grid;
+  justify-content: center;
+  margin-top: 1rem;
+  /* two column grid */
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.user-badge,
+.comp-badge {
+  margin-top: 1rem;
+  font-size: 10rem;
+}
+.res {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}

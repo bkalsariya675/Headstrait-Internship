@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>ROCK PAPER SCISSOR</h1>
+    </header>
+    <div class="selections">
+        <button class="selection" id="r" onclick="func('r')">✊</button>
+        <button class="selection" id="p" onclick="func('p')">✋</button>
+        <button class="selection" id="s" onclick="func('s')">✌</button>
+    </div>
+    <div class="result-heading">
+        <div>
+            <b>YOU</b><br>
+            <span class="user-badge" id="user"></span>
+        </div>
+        <div>
+            <b>COMPUTER</b><br>
+            <span class="comp-badge" id="comp"></span>
+        </div>
+    </div> 
+    <div>
+        <span class="res" id="output"></span>
+    </div>   
+    <!-- <div class="btn">
+        <button onclick="check()">CHECK</button>
+    </div> -->
+</body>
+</html>

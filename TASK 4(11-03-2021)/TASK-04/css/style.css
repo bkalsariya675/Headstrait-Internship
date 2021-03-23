@@ -1,0 +1,74 @@
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: white;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  /*The content property is used to add content or even adding html entities. As for \00a0, it is hex code for a non-breaking space. */
+  /* content: "/\00a0"; */
+}
+ul.breadcrumb li a {
+  color: blue;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: lightblue;
+  text-decoration: underline;
+}
+.wrapper-grid {
+  display: grid;
+  /* The grid-gap property defines the size of the gap between the rows and columns in a grid layout */
+  grid-gap: 2rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.btn {
+  margin-left: 10px;
+  color: black;
+  background-color: blueviolet;
+}
+
+.addition {
+  box-shadow: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .wrapper-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .wrapper-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+/* set all fonts-family and size same except for heading */
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: small;
+}
+
+/* *:not(.container) {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: small;
+} */
+
+.container h2 h3 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: xx-large;
+}

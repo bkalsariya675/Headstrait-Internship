@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TASK 05</title>
+    <script>
+        
+        function add(num1, num2){
+            var x = Number(document.getElementById(num1).value);
+			var y = Number(document.getElementById(num2).value);            
+            // In LocalStorage we can only save Strings , therefore we use JSON.stringify() - It converts any datatype in to string
+            // whereas JSON.parse() converts string to whatever datatype it was befores
+            //get data from input box
+            var new_data = document.getElementById("answer").value = x + y;
+            if(localStorage.getItem('add') === null){
+                    localStorage.setItem('add', '[]');
+            }
+            //get old data and push it after the new data
+            var old_data = JSON.parse(localStorage.getItem('add'));
+            old_data.push(new_data);
+            //save the old and new data to local storage
+            //stringify is done because because the data needs to be in string again
+            localStorage.setItem('add', JSON.stringify(old_data));        
+        }
+        function sub(num1, num2){
+            var x = Number(document.getElementById(num1).value);
+			var y = Number(document.getElementById(num2).value);
+            document.getElementById("answer").value = x - y;
+            localStorage.setItem('sub', x - y);
+        }
+        function mul(num1, num2){
+            var x = Number(document.getElementById(num1).value);
+			var y = Number(document.getElementById(num2).value);
+            document.getElementById("answer").value = x * y;
+            localStorage.setItem('mul', x * y);
+        }
+        function div(num1, num2){
+            var x = Number(document.getElementById(num1).value);
+			var y = Number(document.getElementById(num2).value);
+            document.getElementById("answer").value = x / y;
+            localStorage.setItem('div', x / y);
+        }
+        function sqrt(num1){
+            var x = Number(document.getElementById(num1).value); 
+            document.getElementById("answer").value = Math.sqrt(x);
+            localStorage.setItem('sqrt',Math.sqrt(x));
+        }
+        function cbrt(num1){
+            var x = Number(document.getElementById(num1).value); 
+            document.getElementById("answer").value = Math.cbrt(x);
+            localStorage.setItem('cbrt',Math.cbrt(x));
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            <label><b>Enter First Number:</b></label><br>
+            <input type="text" id="numberOne">
+        </div>
+        <div>
+            <label><b>Enter Second Number:</b></label><br>
+            <input type="text" id="numberTwo">
+        </div>
+        <div>
+            <label><b>Result:</b></label><br>
+            <input type="text" id="answer">
+        </div>
+        <div>
+            <button onclick="add('numberOne', 'numberTwo')">ADD</button>
+            <button onclick="sub('numberOne', 'numberTwo')">SUB</button>
+            <button onclick="mul('numberOne', 'numberTwo')">MUL</button>
+            <button onclick="div('numberOne', 'numberTwo')">DIV</button>
+            <button onclick="sqrt('numberOne')">SQRT</button>
+            <button onclick="cbrt('numberOne')">CBRT</button>
+        </div>
+    </div>
+</body>
+</html>
+<!-- let a =[1,2,3,4,5];
+undefined
+a.splice(0,2);
+(2) [1, 2]
+console.log(a);
+VM425:1 (3) [3, 4, 5]
+undefined
+a.splice(2,0,2.5,2.6); Secon element = 0 defines not to delete any element from the array
+[]
+console.log(a);
+(5) [3, 4, 2.5, 2.6, 5]
+undefined
+a.splice(2,1,100,206); second element = 1 defines delete one element from array which is at position 2
+[2.5]
+console.log(a);
+VM584:1 (6) [3, 4, 100, 206, 2.6, 5]
+undefined
+ -->

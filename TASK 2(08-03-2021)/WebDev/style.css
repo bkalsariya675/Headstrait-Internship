@@ -1,0 +1,92 @@
+/* By Using Universal Selector we are assigning margin and padding to zero of all text */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Century Gothic;
+}
+body {
+  background-image: url(bg.png);
+  background-size: cover;
+}
+
+ul {
+  /* All the links shifted to right */
+  float: right;
+  list-style-type: none;
+  /* UL will shift below 25px from top */
+  margin-top: 25px;
+}
+
+ul li {
+  /* Displaying all Links in a Single line */
+  display: inline-block;
+}
+
+ul li a {
+  text-decoration: none;
+  color: white;
+  /* Create space between Border and Text */
+  padding: 5px 20px;
+  border: 1px solid transparent;
+  /* Transition helps to do hover Smoothly */
+  transition: 0.6s ease;
+}
+
+ul li a:hover {
+  background-color: white;
+  color: black;
+}
+
+ul li.active a {
+  background-color: white;
+  color: black;
+}
+
+.logo img {
+  float: left;
+  height: 50px;
+  width: 150px;
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title h1 {
+  color: white;
+  font-size: 70px;
+}
+.button {
+  position: absolute;
+  background-color: white;
+  color: black;
+  top: 60%;
+  left: 50%;
+  padding: 10px 30px;
+  transform: translate(-50%, -50%);
+}
+
+.main input[type="text"] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 0px;
+  margin-right: 10px;
+  font-size: 15px;
+  border: 1px solid transparent;
+}
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+/* @media screen and (max-width: 600px) {
+      .main a, .main input[type=text], .button a, .title{
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+      } */
