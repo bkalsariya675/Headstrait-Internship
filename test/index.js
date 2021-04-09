@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const contact = require('./routes/api/Contact');
 const student = require('./routes/api/Student');
+const subject = require('./routes/api/Subject');
 
 const cors = require("cors");
 const bodyParser = require('body-parser');
@@ -10,6 +11,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const mongoUrl = "mongodb://localhost:27017/StudentsDB";
+// const mongoUrl = "mongodb://localhost:27017/SubjectDB";
 
 mongoose.connect(mongoUrl,{
   useNewUrlParser: true,
@@ -34,5 +36,7 @@ app.use((err, req, res, next) => {
 // initialize routes
 app.use("/api/contact", contact)
 app.use("/api/student", student)
+app.use("/api/subject", subject)
+
 
 module.exports = app;
