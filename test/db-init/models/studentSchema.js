@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 let studentSchema = new mongoose.Schema({
     name : {type: String},
     email : {type: String, required: true, unique: true, index: true},
-    phone: {type: Number},
+    password: {type: String},
+    phone: {type: String},
     address: {
         street_name: String,
         zipcode: Number

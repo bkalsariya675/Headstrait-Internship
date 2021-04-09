@@ -1,6 +1,9 @@
 const express = require('express');
+const bcrypt =  require('bcrypt');
 const router = express.Router();
 const student = require('../../db-init/models/studentSchema');
+const newToken = require('../../middlewares/token');
+const auth = require('../../middlewares/auth');
 
 // Create New Student
 // For creating a new document we use (POST)
@@ -15,6 +18,7 @@ router.post('/newstudent', async(req, res, next) => {
             const newStudent = await student.create({
                 name: req.body.name,
                 email: req.body.email,
+                password: await bcrypt.hash(req.body.password,5),
                 phone: req.body.phone,
                 address: req.body.address,
                 subjects: req.body.subjects,
@@ -34,7 +38,7 @@ router.post('/newstudent', async(req, res, next) => {
 // Fetch all students
 // for fetching we use (GET)
 
-router.get('/get-all-students', async(req, res, next) => {
+router.get('/get-all-students', auth, async(req, res, next) => {
     try{
         let allStudents = await student.find();
         res.status(200).json({
@@ -121,5 +125,37 @@ router.delete('/delete-student',async(req, res, next) => {
     }
 });
 
+// Checking login by password matching
+
+router.put('/login-student', async (req, res, next) => {
+    try {
+        const isUserExist = await student.findOne({ email: req.body.email });
+        if (isUserExist) {
+            let isPassMatch = bcrypt.compareSync(req.body.password, isUserExist.password)
+            if(!isPassMatch){
+                res.status(400).json({
+                    message: `Password Does not match`
+                })
+            }else{
+                const payload = {
+                    email : isUserExist.email,
+                    _id : isUserExist._id,
+                    name : isUserExist.name
+                }
+                let token = newToken.generateToken(payload);
+                res.status(200).json({
+                    token,
+                    message: `Loged In successfully`
+                })
+            } 
+        } else {
+            res.status(400).json({
+                message: `User Not Found`
+            })
+        }
+    } catch (err) {
+        next(err)
+    }
+})
 
 module.exports = router;
