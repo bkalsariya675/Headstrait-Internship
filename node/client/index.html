@@ -1,0 +1,61 @@
+<!-- create user -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+</head>
+<body>
+    <div class="userCreate">
+        <b>CREATE USER</b>
+        <div>
+            Email:
+            <input type="text" name="email"/>
+            Name:
+            <input type="text" name="name"/>
+            Password:
+            <input type="password" name="password"/>
+        </div>
+        <button id="create_user">CREATE</button>
+    </div>
+    <div class="userFetch">
+        <b>FETCH USER</b>
+        <div>
+        </div>
+        <button id="fetch_user">FETCH</button>
+    </div>
+    <div class="display_data">
+    
+    </div>
+    <div class="userDelete">
+        <b>DELETE USER</b>
+        <div>
+            Email:
+            <input type="text" name="email" id ="email1"/>
+        </div>
+        <button id="delete_user">DELETE</button>
+    </div>
+    <div class ="userUpdate">
+        <b>UPDATE USER</b>
+        <div>
+            Email:
+            <input type="text" name="email" id="email"/>
+            (enter email to update name)<br>
+            Name:
+            <input type="text" name="name"  id="name"/>
+            (enter name)
+        </div>
+        <button id="update_user">UPDATE</button>
+    </div>
+    <div class="deleteAll">
+        <div>
+            <b>DELETE ALL USERS</b>
+        </div>
+        <button id="delete_all">DELETE ALL</button>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</html>
