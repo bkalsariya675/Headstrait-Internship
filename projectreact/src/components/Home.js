@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
 import CardInfo from './CardInfo';
-// import Info from "./Info";
 import Navbar from "./Navbar";
+import { connect } from 'react-redux';
+// import validator from 'validator';
+
+import{
+    createContact, deleteContact, editContact, deleteAllContact
+} from '../actions/contactAction';
 
 class Home extends Component {
     state = {
         title : "Welcome to react",
         firstname : "",
         lastname : "",
-        userInput:"CREATE",
-        newIndex :'',
-        persons : []
+        email:"",
+        designation:"",
+        number:"",
+        editMode : false,
+        editIndex:""
+    }
+    componentDidUpdate(){
+        console.log("Component Updated")
     }
 
     handleInput = (e) => {
@@ -18,100 +28,144 @@ class Home extends Component {
             [e.target.name] :e.target.value
         })
     }
-    // CREATE USER
-    onButtonClick = () => {
-        if(this.state.userInput === 'CREATE'){
-            let personsArray = [...this.state.persons];
-            let newUser = {
-                firstname : this.state.firstname,
-                lastname : this.state.lastname
-            }
-        personsArray.push(newUser);
-        this.setState({
-            persons: personsArray,
-            firstname : "",
-            lastname : ""
-        })
-        }else{
-            let personsArray = [...this.state.persons];
-            // let updateUser ={...personsArray[this.state.index]};
-            // personsArray[this.state.newIndex]=updateUser;
-            // updateUser.firstname = this.state.firstname;
-            // updateUser.lastname = this.state.lastname; 
-            let updateUser = {
-                firstname: this.state.firstname,
-                lastname:this.state.lastname
-            }
-            personsArray[this.state.newIndex]=updateUser;
-            this.setState({
-                userInput : "CREATE",
-                persons : personsArray,
-                firstname : "",
-                lastname : ""    
-        })
-        }
-    }
 
+    // required = (value) => {
+    //     if (!value.toString().trim().length) {
+    //       // We can return string or jsx as the 'error' prop for the validated Component
+    //         return 'require';
+    //     }
+    // }
+
+    //     email = (value) => {
+    //     if (!validator.isEmail(value)) {
+    //         return `${value} is not a valid email.`
+    //     }
+    // };
+
+    // CREATE USER
+    onButtonClick = async () => {
+        let payload = {
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            email: this.state.email,
+            designation:this.state.designation,
+            number: this.state.number
+        }
+        if(this.state.editMode === false){
+            // console.log(payload)
+            await this.props.createContact(payload);
+            this.setState({
+                firstname: "",
+                lastname: "",
+                email:"",
+                designation:"",
+                number:""
+            })
+        }else{
+            let index= this.state.editIndex
+            await this.props.editContact(payload, index);
+            this.setState({
+                editMode: false,
+                editIndex:'',
+                firstname:'',
+                lastname:'',
+                email:'',
+                designation:'',
+                number:''
+            })
+        }      
+    }
     // DELETE USER
-    deletePerson = (index) => {
-        let personsArray = [...this.state.persons];
-        personsArray.splice(index,1)
-        this.setState({
-            persons :personsArray
-        })
+    deletePerson = async (index) => {
+        // console.log(index)
+        await this.props.deleteContact(index)
     }
 
     // EDIT USER
-    editPerson = (index) =>{
-        let personsArray = [...this.state.persons];
-        let updateUser = {...personsArray[index]};
-        personsArray[index] = updateUser;
+    editPerson = (index, firstname, lastname,email,designation,number) => {
         this.setState({
-            persons: personsArray,
-            userInput:'UPDATE',
-            firstname:updateUser.firstname,
-            lastname:updateUser.lastname,
-            newIndex:index
+            editMode : true,
+            firstname: firstname,
+            lastname: lastname,
+            email:email,
+            designation:designation,
+            number:number,
+            editIndex: index
         })
     }
 
-    // DELETE ALL USERS
+// CANCEL EDIT
+    cancelEdit = () => {
+        this.setState({
+            firstname:'',
+            lastname:'',
+            email:'',
+            designation:'',
+            number:'',
+            editMode:false
+        })
+    }
 
-    // delAllPerson = () => {
-    //     let personsArray = [...this.state.persons];
-    //     for (var i = personsArray.length; i >= 0; i--) 
-    //         personsArray.splice(i, 1);
-    //     console.log(personsArray.length);
-
-    // }
-
+    delAll = () => {
+        this.props.deleteAllContact()
+    }
 
     render() {
         return (
-            <div>
-                <Navbar />
+            <div className="all-comp">
+            <Navbar />
+            <div className="form-cls">
                 <input 
                 type="text" 
                 name="firstname" 
                 value={this.state.firstname}
-                placeholder="First Name"
+                placeholder=" First Name"
                 onChange={(e) => this.handleInput(e)}
+                // validations={[required]}
+                // required 
                 />
                 <input 
                 type="text" 
                 name="lastname" 
                 value={this.state.lastname}
-                placeholder="Last Name"
+                placeholder=" Last Name"
                 onChange={(e) => this.handleInput(e)}
                 />
-                <button onClick={() => this.onButtonClick()}>{this.state.userInput}</button>
-                {/* <button onClick = {() => this.delAllPerson()}>Delete All</button> */}
+                <input 
+                type="text" 
+                name="email" 
+                value={this.state.email}
+                placeholder=" example@gmail.com"
+                onChange={(e) => this.handleInput(e)}
+                // validations={[required, email]}
+                />
+                <input 
+                type="text" 
+                name="designation" 
+                value={this.state.designation}
+                placeholder=" Designation"
+                onChange={(e) => this.handleInput(e)}
+                />
+                <input 
+                type="phone" 
+                name="number" 
+                value={this.state.number}
+                placeholder=" Number"
+                onChange={(e) => this.handleInput(e)}
+                />
+                <button className="btn" onClick={() => this.onButtonClick()}>{this.state.editMode? "Update": "Create"}</button>
+                <button className="edit" onClick={() => this.cancelEdit()}>Cancel</button>
+                <button className="del" onClick={() => this.delAll()}>Delete All</button>
+                </div>
                 {
-                    this.state.persons?.map((person,index) => (
+                    this.props.contacts?.map((person,index) => (
                     <CardInfo
                     key={index}
                     firstname = {person.firstname}
                     lastname = {person.lastname}
+                    email={person.email}
+                    designation={person.designation}
+                    number={person.number}
                     index = {index}
                     deletePerson={this.deletePerson}
                     editPerson={this.editPerson}
@@ -123,4 +177,18 @@ class Home extends Component {
     }
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+    contacts : state.contactReducer.contacts,
+    success : state.contactReducer.success,
+    error : state.contactReducer.error
+})
+
+export default connect(
+    mapStateToProps,
+    {
+        createContact,
+        deleteContact,
+        editContact,
+        deleteAllContact
+    }
+)(Home);

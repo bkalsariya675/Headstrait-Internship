@@ -1,0 +1,62 @@
+// onButtonClick = () => {
+    //     if(this.state.userInput === 'CREATE'){
+    //         let personsArray = [...this.state.persons];
+    //         let newUser = {
+    //             firstname : this.state.firstname,
+    //             lastname : this.state.lastname
+    //         }
+    //     personsArray.push(newUser);
+    //     this.setState({
+    //         persons: personsArray,
+    //         firstname : "",
+    //         lastname : ""
+    //     })
+    //     }else{
+    //         let personsArray = [...this.state.persons];
+    //         let updateUser = {
+    //             firstname: this.state.firstname,
+    //             lastname:this.state.lastname
+    //         }
+    //         personsArray[this.state.newIndex]=updateUser;
+    //         this.setState({
+    //             userInput : "CREATE",
+    //             persons : personsArray,
+    //             firstname : "",
+    //             lastname : ""    
+    //     })
+    //     }
+    // }
+
+
+
+    // deletePerson = (index) => {
+    //     let personsArray = [...this.state.persons];
+    //     personsArray.splice(index,1)
+    //     this.setState({
+    //         persons :personsArray
+    //     })
+    // }
+
+
+    // editPerson = (index) =>{
+    //     let personsArray = [...this.state.persons];
+    //     let updateUser = {...personsArray[index]};
+    //     personsArray[index] = updateUser;
+    //     this.setState({
+    //         persons: personsArray,
+    //         userInput:'UPDATE',
+    //         firstname:updateUser.firstname,
+    //         lastname:updateUser.lastname,
+    //         newIndex:index
+    //     })
+    // }
+
+
+    
+    // delAllPerson = () => {
+    //     let personsArray = [...this.state.persons];
+    //     for (var i = personsArray.length; i >= 0; i--) 
+    //         personsArray.splice(i, 1);
+    //     console.log(personsArray.length);
+
+    // }
