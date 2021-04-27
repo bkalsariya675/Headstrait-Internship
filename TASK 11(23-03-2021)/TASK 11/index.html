@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title>TASK 10</title>
+</head>
+<body>
+    <header>
+        <h1>DETAILS</h1>
+    </header>
+    <div class="left-pane">
+        <div class="labels">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" autocomplete="off" pattern="[A-Za-z]{1,255}" required><br>
+
+            <label for="num">Number</label><br>
+            <input type="tel" id="num" pattern="[0-9]{10}" required><br>
+
+            <label for="eml">Email</label><br>
+            <input type="email" id="eml" pattern=".+@gmail.com" title="string@gmail.com" required><br>
+
+            <br><button onclick="submit()" id="submit">SUBMIT</button>
+            <button onclick="delAll()">DELETE ALL</button>
+        </div>    
+    </div>
+    <div class="right-pane" id="rpane">
+    </div>
+</body>
+</html>

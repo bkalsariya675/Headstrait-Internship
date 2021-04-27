@@ -1,4 +1,3 @@
-// import React, { Component } from 'react';
 import './CardInfo.css';
 import logo from "./vk.jpg";
 
