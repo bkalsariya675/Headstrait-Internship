@@ -8,31 +8,21 @@
 // after that you need to add taxes to your total i.e total = total * 1.1
 // and then add shipping i.e total = total + shipping
 
-const totalAmount = ({ discount = 0, tax, shipping = 0 } = {}) => {
+const totalAmount = (items, { discount = 0, tax = 1.1, shipping = 5 } = {}) => {
     let total = 0;
     items.forEach((item) => {
         total += item.price * item.quantity;
     });
     total = (total*tax);
-
-    if(discount > 0) 
-        total = total - total*discount;
-    else
-        console.log("No Discount");
-    
-    if(shipping > 0)
-        total = total + shipping;
-    else
-        console.log("No Shipping Charges");
+    total = total - total*discount;
+    total = total + shipping;
     return total;
 }
 
 // Creating an addition Object
-let addition = {
-    // discount: 0.5,
-    tax: 1.1,
-    // shipping: 5
-}
+// let addition = {
+//     discount: 0.5,
+// }
 
 // Initializing an array of objects
 var items = [
@@ -47,7 +37,7 @@ function arrayIsEmpty(array){
     //If it's not an array, return FALSE.
     if(!Array.isArray(array)) return false;
 
-    //If it is an array, check its length property
+    //If it is an array, check its length 
     //Return TRUE if the array is empty
     if(array.length == 0) return true;
     
@@ -58,6 +48,6 @@ function arrayIsEmpty(array){
 if(arrayIsEmpty(items))
     console.log("No items");
 else
-    console.log("Total Cost",totalAmount(addition));
+    console.log("Total Cost",totalAmount(items));
 
 
