@@ -1,0 +1,152 @@
+*{
+    padding:0;
+    margin:0;
+    /* background-color:lightgray; */
+    font-style: none;
+    color:white;
+    font-weight: bold;
+}
+
+html {
+        min-height:100%;
+        background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(stadium.jpg);
+        background-size:cover;
+}
+
+body{
+    /* background-image: url('stadium.jpg');     */
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.left-pane, h1{
+    display:flex;
+    flex-direction:column;
+    /* box-sizing: border-box; */
+    width: 30%;
+    height: 30%;
+    /* box-shadow: 0px 1px 1px 1px black; */
+    margin:10px;
+    margin-left: 5%;
+}
+
+h1{
+    margin-top: 30px;
+    /* padding: 10px; */
+    color:white;
+    align-items: center;
+}
+
+h3, h4{
+    color:white; 
+}
+
+.batting, .bowling, .extra{
+    display: flex;
+    float:inline-end;
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.play{
+    margin-top: 10px;
+    margin-left: 25%;
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    margin-bottom: 10px;
+    background-color:black;
+}
+
+.batting p,.bowling p, .extra p{
+    padding: 10px;
+}
+
+.batting, .bowling, .extra {
+    font-size: xx-large;
+}
+
+.play:hover{
+    color:black;
+    background-color:white;
+    cursor: pointer;
+}
+
+.players{
+    width: 250px;
+    height: 100px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+}
+.player-score{
+    width: 250px;
+    height: 50px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    margin-top:50px;  
+    font-size: x-large;
+}
+
+.main-bottom{
+    display: flex;
+    /* flex-direction:column; */
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.this-over{
+    display: flex;
+    font-size:x-large;
+    margin-left: 6%;
+    margin-top: 0px;
+}
+
+#this-over{
+    margin-top: 3px;
+    font-size: x-large;
+    margin-left: 10px;
+    /* margin-top: 20px; */
+    font-weight: bold;
+}
+
+.right-pane {
+    display: flex;
+    margin-top: -38%;
+    margin-left: 60%;
+    /* margin-right:10%; */
+}
+
+.right-pane table{
+    font-size: x-large;
+    /* margin-right: 30%; */
+    /* margin: 10px; */
+    /* font-weight: bold; */
+}
+
+#header {
+    color:white;
+}
+.extra-display, .boundary-display{
+    margin-top:20px;
+    margin-left: 6%;
+    display: flex;
+    flex-direction: row; 
+    font-size: x-large;
+    /* font-weight: bold; */
+}
+
+#wides, #noballs, #f, #s{
+    font-weight: bold;  
+}
+
+/* #noballs{
+    margin-bottom: 10%;
+} */

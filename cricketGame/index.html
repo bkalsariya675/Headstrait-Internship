@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>SCORECARD</h1>
+    <div class="left-pane">
+        <div id="batting" class="batting">
+            <!-- Runs and Wickets -->
+            <p>SCORE</p>
+            <div class="runs">
+                <p id="run">
+                    0
+                </p>
+            </div>
+            /
+            <div class="wickets">    
+                <p id="wicket">
+                    0
+                </p>
+            </div>
+        </div>
+        <div id="bowling" class="bowling">    
+            <!-- Overs -->
+            <p>OVERS</p>
+            <div class="overs">
+                <p id="over">
+                    0
+                </p>
+            </div>
+            .
+            <div class="bowls">     
+                <p id="bowl">
+                    0
+                </p>
+            </div>
+        </div>
+        <div class="extra">
+            EXTRAS
+            <p id="extra">0</p>
+        </div>
+        <button id="play" class="play" onclick="playGame();">START</button>
+    </div>
+    <div class="main-bottom">
+        <div class="players">
+            <h3>BATSMAN STATS</h3>
+            <p>
+                STRIKER<br>
+                NON-STRIKER
+            </p>
+        </div>
+        <div class="player-score">
+            <p id="striker"></p>
+            <p id="non-striker"></p>
+        </div>
+    </div>
+    <div class="this-over">
+        <h3>THIS OVER:</h3>
+        <p id="this-over"></p>
+    </div>
+    <div class="extra-display">
+        <h4>BOUNDARIES:</h4>
+        <p>FOURS:</p>
+        <p id="f"></p>
+        <p>SIXES:</p>
+        <p id="s"></p>
+    </div>
+    <div class="boundary-display">
+        <h4>EXTRAS:</h4>
+        <p>WIDE: </p>
+        <p id="wides"></p>
+        <p>NO BALLS:</p>
+        <p id="noballs"></p>
+    </div>
+    <div class="right-pane">
+        <table id="detailScore" border="0" cellspacing="5" cellpadding="5" align="center">
+            <th id="header" colspan="5">DETAIL SCORECARD</th>
+            <tr>
+                <td>PLAYER</td>
+                <td>RUNS</td>
+                <td>BALLS</td>
+                <td>FOURS</td>
+                <td>SIXES</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>ROHIT SHARMA</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>SHIKHAR DHAWAN</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>VIRAT KOHLI</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>KL RAHUL</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>RISHABH PANT</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>HARDIK PANDYA</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>RAVINDRA JADEJA</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>RAVI ASHWIN</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>BHUVI KUMAR</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>MOHD. SHAMI</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>JASPRIT BUMRAH</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
