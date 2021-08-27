@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.calc-body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border: 0px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.screen {
+  margin: 5px;
+  width: 93%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: repeat(4, 50px, 50px); */
+}
+
+.numbers button {
+  border: 0.2px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.numbers button:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+.numbers #add,
+#sub,
+#div,
+#mul {
+  background-color: green;
+}
